@@ -1,22 +1,17 @@
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Home from "../views/Home";
-import Detail from "../views/Detail";
-import Results from "../views/Results";
+import Home from '../views/Home';
+import Results from '../views/Results';
+import Detail from '../views/Detail';
 
-const Routes = () => (
-    <Router>
-        <Route exact path="/">
-            <Home />
-        </Route>
-        <Route path="/results">
-            <Results />
-        </Route>
-        <Route path="/detail">
-            <Detail />
-        </Route>
-    </Router>
+const RoutesComponent = () => (
+ <BrowserRouter>
+  <Routes>
+   <Route path="/" element={<Home />} />
+   <Route path="/results/:title" element={<Results />} />
+   <Route path="/detail/:movieId" element={<Detail />} />
+  </Routes>
+ </BrowserRouter>
 );
 
-export { Routes }; // import { Routes } 
-export default Routes; // import Routes
+export default RoutesComponent;
